@@ -20,13 +20,13 @@
 
         <TextView
             android:id="@+id/txt_title"
-            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#000000"
             android:text="@{icLecture.title}"
-            tools:text="Task2 - boys and girls"
-            android:textStyle="bold"/>
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Task2 - boys and girls" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,16 +39,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textSize="20sp"
+                android:text="@{@string/plus_num(icLecture.count)}"
                 android:textColor="#ff7101"
-                android:text="+5"/>
+                android:textSize="20sp" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_item1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_weight="1"
-
+                android:orientation="horizontal"
                 android:paddingHorizontal="8dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,50 +63,55 @@
                         android:id="@+id/img_ranking_01"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
+                        android:visibility="@{icLecture.count > 0}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@mipmap/ic_launcher_round" />
+                        android:src="@drawable/iv_lecture_member" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img_ranking_02"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginLeft="16dp"
+                        android:visibility="@{icLecture.count > 1}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="@id/img_ranking_01"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@mipmap/ic_launcher_round" />
+                        android:src="@drawable/iv_lecture_member" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img_ranking_03"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginLeft="32dp"
+                        android:visibility="@{icLecture.count > 2}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@mipmap/ic_launcher_round" />
+                        android:src="@drawable/iv_lecture_member" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img_ranking_04"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginLeft="48dp"
+                        android:visibility="@{icLecture.count > 3}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@mipmap/ic_launcher_round" />
+                        android:src="@drawable/iv_lecture_member" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/img_ranking_05"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_marginLeft="64dp"
+                        android:visibility="@{icLecture.count > 4}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:src="@mipmap/ic_launcher_round" />
+                        android:src="@drawable/iv_lecture_member" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -115,11 +120,11 @@
                 android:id="@+id/txt_checked"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="첨삭완료 : 0"
-                android:textSize="14sp"
-                android:textColor="#777777"
                 android:layout_gravity="center_vertical"
-                android:text="@{icLecture.checked}" />
+                android:text="@{@string/lecture_num(icLecture.checked)}"
+                android:textColor="#777777"
+                android:textSize="14sp"
+                tools:text="첨삭완료 : 0" />
 
 
         </LinearLayout>

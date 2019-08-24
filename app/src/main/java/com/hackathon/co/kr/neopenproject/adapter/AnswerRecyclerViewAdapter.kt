@@ -1,6 +1,7 @@
 package com.hackathon.co.kr.neopenproject.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.co.kr.neopenproject.BR
 import com.hackathon.co.kr.neopenproject.databinding.ItemAnswerRecyclerLayoutBinding
 import com.hackathon.co.kr.neopenproject.databinding.ItemRecyclerLayoutBinding
+import com.hackathon.co.kr.neopenproject.ui.answer.AnswerListActivity
+import com.hackathon.co.kr.neopenproject.ui.jk.CheckActivity
 import com.hackathon.co.kr.neopenproject.vo.AnswerDTO
 import com.hackathon.co.kr.neopenproject.vo.AnswerVO
 import com.hackathon.co.kr.neopenproject.vo.ResponseVO
@@ -31,7 +34,12 @@ class AnswerRecyclerViewAdapter(): RecyclerView.Adapter<AnswerRecyclerViewAdapte
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         val binding = ItemAnswerRecyclerLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RecyclerViewHolder(binding)
+        var holder = RecyclerViewHolder(binding)
+        holder.itemView.setOnClickListener {
+            (context as AnswerListActivity).startActivity(Intent(context, CheckActivity::class.java))
+        }
+
+        return holder
     }
 
     override fun getItemCount(): Int {

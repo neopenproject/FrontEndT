@@ -17,16 +17,17 @@
             android:name=".ui.jk.LectureActivity"
             android:label="@string/title_activity_lecture"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.login.LoginActivity"></activity>
-        <activity android:name=".ui.login.AssignActivity" />
-        <activity android:name=".ui.answer.AnswerListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ui.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.login.AssignActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.answer.AnswerListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
