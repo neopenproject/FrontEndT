@@ -17,6 +17,7 @@ import com.hackathon.co.kr.neopenproject.adapter.BaseRecyclerView
 import com.hackathon.co.kr.neopenproject.base.BaseActivity
 import com.hackathon.co.kr.neopenproject.databinding.ActivityLectureBinding
 import com.hackathon.co.kr.neopenproject.databinding.ItemLectureListBinding
+import com.hackathon.co.kr.neopenproject.ui.answer.AnswerListActivity
 import com.hackathon.co.kr.neopenproject.vo.Post
 
 import kotlinx.android.synthetic.main.activity_lecture.*
@@ -26,7 +27,7 @@ class LectureActivity(override var layoutResource: Int = R.layout.activity_lectu
     val lectureVM by lazy {
         ViewModelProviders.of(this).get(LectureViewModel::class.java)
     }
-    lateinit var lectureAdapter : BaseRecyclerView.Adapter<Lecture, ItemLectureListBinding>
+    lateinit var lectureAdapter: BaseRecyclerView.Adapter<Lecture, ItemLectureListBinding>
 
     override fun onDataBind() {
         binding = DataBindingUtil.setContentView(this, layoutResource)
@@ -45,11 +46,16 @@ class LectureActivity(override var layoutResource: Int = R.layout.activity_lectu
         lectureAdapter = object : BaseRecyclerView.Adapter<Lecture, ItemLectureListBinding>(
                 layoutResId = R.layout.item_lecture_list,
                 bindingVariableId = BR.icLecture
-        ){
+        ) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<ItemLectureListBinding> {
                 return super.onCreateViewHolder(parent, viewType).apply {
                     this.itemView.setOnClickListener {
-                        // Intent(this@LectureActivity, )
+                        startActivity(
+                                Intent(this@LectureActivity, AnswerListActivity::class.java).apply {
+                                    // putExtra("title", )
+                                    // putExtra("id", )
+                                }
+                        )
                     }
                 }
             }
