@@ -52,8 +52,9 @@ class LectureActivity(override var layoutResource: Int = R.layout.activity_lectu
                     this.itemView.setOnClickListener {
                         startActivity(
                                 Intent(this@LectureActivity, AnswerListActivity::class.java).apply {
-                                    // putExtra("title", )
-                                    // putExtra("id", )
+                                     putExtra("subject", lectureVM.posts.value?.get(adapterPosition)?.subject)
+                                     putExtra("title", lectureVM.posts.value?.get(adapterPosition)?.title)
+                                     putExtra("id", lectureVM.posts.value?.get(adapterPosition)?.id)
                                 }
                         )
                     }

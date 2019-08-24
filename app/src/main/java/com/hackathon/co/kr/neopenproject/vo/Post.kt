@@ -20,6 +20,7 @@ data class Post(
 
 fun Post.refineToLecture(): Lecture {
     return Lecture(
+            id = this.id,
             subject = this.subject,
             title = this.title,
             member = arrayListOf(),

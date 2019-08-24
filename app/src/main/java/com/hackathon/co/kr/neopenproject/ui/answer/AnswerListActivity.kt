@@ -42,10 +42,15 @@ class AnswerListActivity : BaseActivity(){
         val adapter = AnswerRecyclerViewAdapter(this)
         viewDataBinding.rvAnswerList.adapter = adapter
 
-        val title = intent.getStringExtra("")
-        val subject = intent.getStringExtra("")
-//        val id = intent.getIntExtra()
+        val title = intent.getStringExtra("title")
+        val subject = intent.getStringExtra("subject")
+        val id = intent.getIntExtra("id",1)
 
+        viewDataBinding.btnBack.setOnClickListener {
+            finish()
+        }
+        viewDataBinding.tvAnswerObj.text = title
+        viewDataBinding.tvAnswerObjSub.text = subject
         viewModel.answer.observe(this, Observer {
             val result = it.result?.get("answer_post")as JsonArray
 
@@ -63,7 +68,7 @@ class AnswerListActivity : BaseActivity(){
             adapter.replaceAll(list)
         })
 
-//        viewModel.getAnswerList(id)
+        viewModel.getAnswerList(id)
 
     }
 
