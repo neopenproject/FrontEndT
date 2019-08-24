@@ -29,3 +29,10 @@ fun setSrc(view: ImageView, url: Int) {
 
     Glide.with(view.context).load(url).into(view)
 }
+
+@BindingAdapter("android:src")
+fun setSrc(view: ImageView, url: String) {
+    Log.d("url ", url.toString())
+
+    Glide.with(view.context).load(url).into(view)
+}
