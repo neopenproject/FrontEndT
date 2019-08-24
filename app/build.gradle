@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -46,11 +47,12 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     // alternately - if using Java8, use the following instead of compiler
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0'
+    annotationProcessor 'androidx.databinding:databinding-compiler:3.5.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    compile "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
