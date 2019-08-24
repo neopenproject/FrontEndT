@@ -1,5 +1,6 @@
 package com.hackathon.co.kr.neopenproject.ui.jk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,13 @@ class CheckActivity : AppCompatActivity() {
                 iv_problem_c.visibility = View.GONE
             else
                 iv_problem_c.visibility = View.VISIBLE
+        }
+        done.setOnClickListener {
+            var intent=Intent(this@CheckActivity, CheckDoneActivity::class.java).apply {
+
+            }
+            startActivity(intent)
+            finish()
         }
     }
 
