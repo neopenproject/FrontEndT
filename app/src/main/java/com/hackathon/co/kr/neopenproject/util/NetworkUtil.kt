@@ -2,6 +2,7 @@ package com.hackathon.co.kr.neopenproject.util
 
 import com.hackathon.co.kr.neopenproject.network.RetrofitInterface
 import com.hackathon.co.kr.neopenproject.network.RetrofitServer
+import com.hackathon.co.kr.neopenproject.vo.ProblemVO
 import com.hackathon.co.kr.neopenproject.vo.ResponseVO
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,6 +63,22 @@ class NetworkUtil {
                 if (returnValue != null)
                     onSuccess(returnValue)
             }
+        })
+    }
+
+    fun getAnswerPost(onSuccess: (responseVo: ProblemVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
+        val getAnswers = networkInterface.getAnswerPost()
+        getAnswers.enqueue(object : Callback<ProblemVO> {
+            override fun onFailure(call: Call<ProblemVO>, t: Throwable) {
+                onFailure(t)
+            }
+
+            override fun onResponse(call: Call<ProblemVO>, response: Response<ProblemVO>) {
+                response.body()?.apply {
+                    onSuccess(this)
+                }
+            }
+
         })
     }
 }
