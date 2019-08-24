@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NeopenProject</string>
+    <string name="title_activity_lecture">LectureActivity</string>
 </resources>

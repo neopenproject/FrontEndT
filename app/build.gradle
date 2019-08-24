@@ -43,6 +43,7 @@ dependencies {
     //okhttp
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.1'
     //lifecycle
+    implementation 'com.google.android.material:material:1.0.0'
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     // alternately - if using Java8, use the following instead of compiler
@@ -54,6 +55,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 repositories {
     mavenCentral()
