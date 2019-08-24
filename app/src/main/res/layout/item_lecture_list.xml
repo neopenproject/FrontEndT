@@ -3,99 +3,133 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:padding="16dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/txt_subject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="subject"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@{icLecture.subject}"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            tools:text="IELTS Writing Sample #189" />
 
         <TextView
             android:id="@+id/txt_title"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_subject" />
+            android:textColor="#000000"
+            android:text="@{icLecture.title}"
+            tools:text="Task2 - boys and girls"
+            android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/txt_member"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="+num"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_title" />
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_item1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintLeft_toRightOf="@id/txt_member"
-            app:layout_constraintTop_toBottomOf="@id/txt_title"
-            android:paddingHorizontal="8dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_rankings"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txt_member"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_gravity="center_vertical"
+                android:textSize="20sp"
+                android:textColor="#ff7101"
+                android:text="+5"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_ranking_01"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                android:paddingHorizontal="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_rankings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@mipmap/ic_launcher_round" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_ranking_02"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="@id/img_ranking_01"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@mipmap/ic_launcher_round" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ranking_01"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_launcher_round" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_ranking_03"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="24dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@mipmap/ic_launcher_round" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ranking_02"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="@id/img_ranking_01"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_launcher_round" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ranking_03"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_launcher_round" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ranking_04"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="48dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_launcher_round" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_ranking_05"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="64dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@mipmap/ic_launcher_round" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/txt_checked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="첨삭완료 : 0"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:layout_gravity="center_vertical"
+                android:text="@{icLecture.checked}" />
 
-        <TextView
-            android:id="@+id/txt_checked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="첨삭완료"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cl_item1"
-            app:layout_constraintTop_toBottomOf="@id/txt_title" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <data>
+
+        <variable
+            name="icLecture"
+            type="com.hackathon.co.kr.neopenproject.ui.jk.Lecture" />
+    </data>
 </layout>
