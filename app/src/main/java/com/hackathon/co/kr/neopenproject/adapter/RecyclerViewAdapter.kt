@@ -7,18 +7,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.co.kr.neopenproject.BR
 import com.hackathon.co.kr.neopenproject.databinding.ItemRecyclerLayoutBinding
+import com.hackathon.co.kr.neopenproject.vo.CourseVO
 import com.hackathon.co.kr.neopenproject.vo.ResponseVO
 
 class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder>() {
     lateinit var context: Context
-    var items: ArrayList<ResponseVO> = arrayListOf()
+    var items: ArrayList<CourseVO> = arrayListOf()
 
     constructor(context: Context):this(){
         this.context = context
         this.items = ArrayList()
     }
 
-    fun replaceAll(newItems: ArrayList<ResponseVO>) {
+    fun replaceAll(newItems: ArrayList<CourseVO>) {
         items.apply {
             clear()
             addAll(newItems)
@@ -46,9 +47,8 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.RecyclerVi
             this.binding = binding
         }
 
-        fun bind(item: ResponseVO) {
+        fun bind(item: CourseVO) {
             binding.setVariable(BR.item, item)
         }
-
     }
 }
