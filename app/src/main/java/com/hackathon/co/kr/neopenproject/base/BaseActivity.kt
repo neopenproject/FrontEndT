@@ -16,6 +16,7 @@ abstract class BaseActivity : AppCompatActivity() {
             onDataBind()
         else
             setContentView(layoutResource)
+        subScribeUI()
     }
 
     fun subScribeUI() {
