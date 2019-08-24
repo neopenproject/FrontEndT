@@ -6,7 +6,7 @@ import com.hackathon.co.kr.neopenproject.vo.ResponseVO
 class MainRepositoryImpl() : MainRepository {
     override fun postLogin(email: String, pwd: String, onSuccess: (responseVo: ResponseVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
         val networkUtil = NetworkUtil.getInstance()
-        networkUtil.postSignup(
+        networkUtil.postLogin(
                 email,
                 pwd,
                 onSuccess = {
@@ -15,7 +15,8 @@ class MainRepositoryImpl() : MainRepository {
                 onFailure = {
                     onFailure(it)
                 }
-        )    }
+        )
+    }
 
     override fun postSignup(email: String, pwd: String, onSuccess: (responseVo: ResponseVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
         val networkUtil = NetworkUtil.getInstance()

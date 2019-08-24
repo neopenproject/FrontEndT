@@ -34,10 +34,17 @@ fun setSrc(view: ImageView, url: Int) {
 @BindingAdapter("android:visibility")
 fun setVisibility(view: View, isVisible: Boolean) {
     Log.d("setVisibility ", "$isVisible")
-    if(isVisible)
+    if (isVisible)
         view.visibility = View.VISIBLE
     else
         view.visibility = View.GONE
 
     view.requestLayout()
+}
+
+@BindingAdapter("android:src")
+fun setSrc(view: ImageView, url: String) {
+    Log.d("url ", url.toString())
+
+    Glide.with(view.context).load(url).into(view)
 }

@@ -1,6 +1,7 @@
 package com.hackathon.co.kr.neopenproject.network
 
 import com.hackathon.co.kr.neopenproject.vo.ProblemVO
+import com.hackathon.co.kr.neopenproject.vo.AnswerVO
 import com.hackathon.co.kr.neopenproject.vo.ResponseVO
 import retrofit2.Call
 import retrofit2.http.*
@@ -9,6 +10,9 @@ interface RetrofitInterface {
 
     @GET("/")
     fun get_userLogin(): Call<ResponseVO>
+
+    @GET("/api/v1/answer/post")
+    fun get_answer(@Query("problem_post") id:Int): Call<AnswerVO>
 
     @FormUrlEncoded
     @POST("/api/v1/account/teacher")

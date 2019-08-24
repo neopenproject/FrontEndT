@@ -19,14 +19,16 @@
             android:label="@string/title_activity_lecture"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.login.LoginActivity">
+
+        </activity>
+        <activity android:name=".ui.login.AssignActivity"/>
+        <activity android:name=".ui.answer.AnswerListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.login.AssignActivity"/>
-        <activity android:name=".ui.answer.AnswerListActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
