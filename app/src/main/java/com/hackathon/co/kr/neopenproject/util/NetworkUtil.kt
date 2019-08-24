@@ -8,8 +8,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class NetworkUtil {
-    var TAG ="NetworkUtil"
-    lateinit var networkInterface : RetrofitInterface
+    var TAG = "NetworkUtil"
+    lateinit var networkInterface: RetrofitInterface
 
     companion object {
         fun getInstance(): NetworkUtil {
@@ -19,7 +19,7 @@ class NetworkUtil {
         }
     }
 
-    fun getTest(onSuccess:(responseVo:ResponseVO) -> Unit, onFailure:(t:Throwable) -> Unit){
+    fun getTest(onSuccess: (responseVo: ResponseVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
         var returnValue: ResponseVO = ResponseVO()
         val getT = networkInterface.get_userLogin()
         getT.enqueue(object : Callback<ResponseVO> {
@@ -34,7 +34,7 @@ class NetworkUtil {
         })
     }
 
-    fun postSignup(email:String, pwd:String,onSuccess:(responseVo:ResponseVO) -> Unit, onFailure:(t:Throwable) -> Unit){
+    fun postSignup(email: String, pwd: String, onSuccess: (responseVo: ResponseVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
         var returnValue: ResponseVO = ResponseVO()
         val getT = networkInterface.post_userSinup(email, pwd)
         getT.enqueue(object : Callback<ResponseVO> {
@@ -49,7 +49,7 @@ class NetworkUtil {
         })
     }
 
-    fun postLogin(email:String, pwd:String,onSuccess:(responseVo:ResponseVO) -> Unit, onFailure:(t:Throwable) -> Unit){
+    fun postLogin(email: String, pwd: String, onSuccess: (responseVo: ResponseVO) -> Unit, onFailure: (t: Throwable) -> Unit) {
         var returnValue: ResponseVO = ResponseVO()
         val getT = networkInterface.post_userLogin(email, pwd)
         getT.enqueue(object : Callback<ResponseVO> {
@@ -59,7 +59,8 @@ class NetworkUtil {
 
             override fun onResponse(call: Call<ResponseVO>, response: Response<ResponseVO>) {
                 returnValue = response.body()!!
-                onSuccess(returnValue)
+                if (returnValue != null)
+                    onSuccess(returnValue)
             }
         })
     }

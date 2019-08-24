@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="assign_titles">
+        <item>아이디</item>
+        <item>비밀번호</item>
+        <item>비밀번호 확인</item>
+        <item>이름</item>
+        <item>생년월일</item>
+        <item>월</item>
+        <item>일</item>
+        <item>성별</item>
+    </string-array>
+</resources>
