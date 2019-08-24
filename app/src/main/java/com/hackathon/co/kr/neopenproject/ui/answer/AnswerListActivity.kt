@@ -1,5 +1,6 @@
 package com.hackathon.co.kr.neopenproject.ui.answer
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
@@ -14,6 +15,9 @@ import com.hackathon.co.kr.neopenproject.base.BaseActivity
 import com.hackathon.co.kr.neopenproject.databinding.ActivityAnswerlistBinding
 import com.hackathon.co.kr.neopenproject.util.NetworkUtil
 import com.hackathon.co.kr.neopenproject.vo.AnswerDTO
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AnswerListActivity : BaseActivity(){
     override var layoutResource: Int = R.layout.activity_answerlist
@@ -27,13 +31,20 @@ class AnswerListActivity : BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         networkUtil = NetworkUtil.getInstance()
-        subscribeUI()
+
+        val intent = intent
+
+        subscribeUI(intent)
     }
 
-    fun subscribeUI(){
+    fun subscribeUI(intent: Intent){
         viewDataBinding.rvAnswerList.layoutManager = GridLayoutManager(this,2) as RecyclerView.LayoutManager?
         val adapter = AnswerRecyclerViewAdapter(this)
         viewDataBinding.rvAnswerList.adapter = adapter
+
+        val title = intent.getStringExtra("")
+        val subject = intent.getStringExtra("")
+//        val id = intent.getIntExtra()
 
         viewModel.answer.observe(this, Observer {
             val result = it.result?.get("answer_post")as JsonArray
@@ -42,13 +53,17 @@ class AnswerListActivity : BaseActivity(){
             val list = ArrayList<AnswerDTO>()
             result.forEach{
                 val item = it.asJsonObject
-                val update = item.get("updated_at").asString
+                val unixSeconds = item.get("updated_at").asLong
+                val date = Date(unixSeconds/10000)
+                val sdf = SimpleDateFormat("yyyy.MM.dd")
+                sdf.timeZone = TimeZone.getTimeZone("GMT-4")
+                val update = sdf.format(date)
                 list.add(AnswerDTO("http://ec2-15-164-171-69.ap-northeast-2.compute.amazonaws.com/api/v1/"+item.get("answer_img").asString, item.get("is_teacher_view").asBoolean, update))
             }
             adapter.replaceAll(list)
         })
 
-        viewModel.getAnswerList(1)
+//        viewModel.getAnswerList(id)
 
     }
 
