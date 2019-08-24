@@ -6,7 +6,8 @@ data class Lecture(
         var subject: String,
         var title: String,
         var member: ArrayList<JsonObject>,
-        var checked: String
+        var checked: String,
+        var count : Int
 )
 
 fun getGenerateLecture(): Lecture {
@@ -14,6 +15,7 @@ fun getGenerateLecture(): Lecture {
             subject = "123",
             title = "456",
             member = arrayListOf(),
-            checked = "5"
+            checked = "5",
+            count = 5
     )
 }

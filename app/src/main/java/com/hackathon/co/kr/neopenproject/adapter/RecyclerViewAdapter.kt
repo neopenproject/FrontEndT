@@ -1,12 +1,15 @@
 package com.hackathon.co.kr.neopenproject.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hackathon.co.kr.neopenproject.BR
+import com.hackathon.co.kr.neopenproject.MainActivity
 import com.hackathon.co.kr.neopenproject.databinding.ItemRecyclerLayoutBinding
+import com.hackathon.co.kr.neopenproject.ui.jk.LectureActivity
 import com.hackathon.co.kr.neopenproject.vo.CourseVO
 import com.hackathon.co.kr.neopenproject.vo.ResponseVO
 
@@ -29,7 +32,12 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.RecyclerVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
         val binding = ItemRecyclerLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RecyclerViewHolder(binding)
+        var holder = RecyclerViewHolder(binding)
+        holder.itemView.setOnClickListener {
+            (context as MainActivity).startActivity(Intent(context, LectureActivity::class.java))
+        }
+
+        return holder
     }
 
     override fun getItemCount(): Int {
