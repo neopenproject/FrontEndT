@@ -19,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
         subScribeUI()
     }
 
-    fun subScribeUI() {
+    open fun subScribeUI() {
 
     }
 
