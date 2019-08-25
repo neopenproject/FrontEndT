@@ -66,7 +66,7 @@
 
             <TextView
                 android:id="@+id/lec_title"
-                tools:text="영알못 머시기"
+                android:text="영알못 통문장 코스"
                 android:textSize="20sp"
                 android:textColor="#000000"
                 android:layout_width="wrap_content"
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="해커스어학원"
+                android:text="해커스어학원"
                 android:layout_marginTop="8dp"
                 android:textColor="#0b0b0b"
                 android:textSize="16sp"

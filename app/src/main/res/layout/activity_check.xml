@@ -118,26 +118,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="12dp"
-                        android:text="@{icLecture.subject}"
+                        android:text="IELTS Writing Sample #189"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="IELTS Writing Sample #189" />
-
+                        app:layout_constraintTop_toTopOf="parent" />
+                <!--                android:text="@{icLecture.subject}"-->
                 <TextView
                         android:id="@+id/txt_title_c"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="24dp"
-                        android:text="@{icLecture.title}"
+                        android:text="Task2 - boys and girls"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txt_subject_c"
-                        tools:text="Task2 - boys and girls" />
-
+                        app:layout_constraintTop_toBottomOf="@id/txt_subject_c" />
+                <!--                android:text="@{icLecture.title}"-->
                 <TextView
                         android:id="@+id/bt_dropdown"
                         android:layout_width="wrap_content"
@@ -194,7 +192,6 @@
                         android:layout_height="1dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="16dp"
-                        android:layout_marginTop="14dp"
                         android:layout_marginRight="16dp"
                         android:background="#979797"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -255,7 +252,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@id/iv_profile"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:text="이정석" />
+                            android:text="사용자" />
 
                     <TextView
                             android:layout_width="wrap_content"
@@ -266,7 +263,7 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            tools:text="회신 2019.08.12" />
+                            android:text="회신 2019.08.12" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
